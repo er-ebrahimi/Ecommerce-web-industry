@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import * as home from "../assets/Home.jpg";
-import * as washing from "../assets/washing.png";
 import * as line from "../assets/Group.png";
 import Footer from "../components/Footer";
+import Card from "../hooks/Card";
 // declare module "*.jpg"
 
 export default function Home() {
@@ -28,26 +28,8 @@ export default function Home() {
         <section className="section product--section container">
           <h1 className="product--title">Our products</h1>
           <div className="product--container">
-            <div className="card--container">
-              <img
-                src={washing.default}
-                alt="washing-machine"
-                className="card--image"
-              />
-              <h1 className="card--title">Washing Machine</h1>
-              <p className="card--description">washing clothes with 100 cpm</p>
-              <button className="button ">Enroll</button>
-            </div>
-            <div className="card--container">
-              <img
-                src={washing.default}
-                alt="washing-machine"
-                className="card--image"
-              />
-              <h1 className="card--title">Washing Machine</h1>
-              <p className="card--description">washing clothes with 100 cpm</p>
-              <button className="button ">Enroll</button>
-            </div>
+            <Card />
+            <Card />
           </div>
         </section>
         <div className="activity--background">
