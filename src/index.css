@@ -398,3 +398,43 @@ select,
 textarea {
   color: var(--text-color);
 }
+
+.shop {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 2rem;
+}
+
+.fa-cart-shopping {
+  font-size: var(--normal-font-size);
+  transition: 0.5s;
+}
+
+.shop--link:hover {
+  color: #e96b00;
+}
+
+.shop--link {
+  position: relative;
+}
+
+.shop--link::after {
+  content: "1";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: solid 1px var(--second-color);
+  background: #e96b00;
+  text-align: center;
+  transform: translate(-5px, 7px);
+  position: absolute;
+  /* display: grid; */
+}
+
+.login--button {
+  padding: 5px;
+  font-size: 0.7rem;
+  min-width: 45px;
+}
