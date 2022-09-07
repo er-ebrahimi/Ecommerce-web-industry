@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1, 
+        "name" : "washing",
+        "price" : 100000,
+        "imgUrl" : "/images/washing.png"
+    },
+    {
+        "id": 2,
+        "name" : "NTO",
+        "price" : 100000,
+        "imgUrl" : "/images/NTO.png"
+    },
+    {
+        "id": 3,
+        "name" : "industrial",
+        "price" : 100000,
+        "imgUrl" : "/images/industrial.png"
+    },
+    
+    {
+        "id": 4,
+        "name" : "printing",
+        "price" : 100000,
+        "imgUrl" : "/images/printing.png"
+    }
+]

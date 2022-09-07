@@ -102,6 +102,7 @@ main {
   position: fixed;
   width: 100%;
   z-index: var(--z-fixed);
+  top: 0;
 }
 
 .header {
@@ -238,14 +239,16 @@ main {
   padding: 15px;
   overflow: hidden;
   justify-content: space-around;
+  height: 400px;
 }
 
 .card--image {
   /* position: absolute; */
   left: -15px;
-  width: 270px;
+  width: inherit;
   align-self: center;
-  margin-bottom: 20px;
+  margin: 20px 1px;
+  height: 150px;
 }
 
 .card--title {
@@ -388,6 +391,11 @@ main {
   outline: #e96b00;
 }
 
+.input:focus {
+  border-color: #e96b00;
+  border: 2px solid var(--second-color-alt);
+}
+
 .alert_title--footer {
   padding: 0;
   margin: 0.5rem 0 0.5rem;
@@ -437,4 +445,40 @@ textarea {
   padding: 5px;
   font-size: 0.7rem;
   min-width: 45px;
+}
+
+/* shop page */
+.shop--title {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.shop--title--conatainer {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.shop--cards--container {
+  margin-top: 0rem;
+  padding-top: 3rem;
+}
+
+.shop--container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 100vh; */
+  row-gap: 3rem;
+  align-items: center;
+  justify-items: center;
+  column-gap: 30px;
+}
+
+.about--main {
+  background: url(./assets/Desktop2.png) center/cover no-repeat;
+  background-color: rgba(42, 53, 81, 0.3);
+}
+
+.about--description {
+  font-size: var(--small-font-size);
 }

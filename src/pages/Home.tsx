@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import * as home from "../assets/Home.jpg";
 import * as line from "../assets/Group.png";
 import Footer from "../components/Footer";
-import Card from "../hooks/Card";
+import Card from "../components/Card";
 // declare module "*.jpg"
 
 export default function Home() {
   // const home = require("../assets/Home.jpg")
-  console.log(home.default);
+  // console.log(home.default);
   return (
     <React.StrictMode>
       <header className="header">

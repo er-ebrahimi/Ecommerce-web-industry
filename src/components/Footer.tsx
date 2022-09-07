@@ -60,7 +60,7 @@ export default function () {
           <h3 className="title--footer alert_title--footer">
             Sign Up for industry alert
           </h3>
-          <input type="email" className="footer--input" />
+          <input type="email" className="footer--input input" />
           <button className="button footer--button">Sign Up!</button>
         </div>
       </div>
