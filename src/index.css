@@ -383,12 +383,23 @@ main {
   margin: 0.5rem;
 }
 
-.footer--input {
+.input {
   border: 1px solid var(--card-color);
   background-color: inherit;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   outline: #e96b00;
+  margin: 0.5rem 0;
+  background-color: var(--card-color);
+}
+
+.footer--input {
+  border: 1px solid var(--card-color);
+  /* background-color: inherit; */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  outline: #e96b00;
+  margin: 0;
 }
 
 .input:focus {
@@ -481,4 +492,31 @@ textarea {
 
 .about--description {
   font-size: var(--small-font-size);
+}
+
+/* form */
+.contact--form--container {
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: center; */
+  justify-items: center;
+  align-items: center;
+  /* align-content: center; */
+  height: 100vh;
+  display: grid;
+}
+
+.contact--title {
+  font-size: 2rem;
+}
+
+.textarea--form {
+  background-color: #2e2e2e;
+  border: solid 2px var(--card-color);
+  border-radius: 5px;
+  outline: #c75b00;
+}
+
+.textarea--form:focus {
+  border-color: #c75b00;
+  padding: 0.5rem 1rem;
 }

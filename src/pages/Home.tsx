@@ -4,11 +4,20 @@ import * as home from "../assets/Home.jpg";
 import * as line from "../assets/Group.png";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import data from "../data/data.json";
 // declare module "*.jpg"
 
 export default function Home() {
   // const home = require("../assets/Home.jpg")
   // console.log(home.default);
+  let count: number = 0;
+  let cards: any = data.map((x) => {
+    count++;
+    if (count < 2) {
+      return <Card key={x.id} {...x} />;
+    }
+    count = 0;
+  });
   return (
     <React.StrictMode>
       <header className="header">
@@ -28,8 +37,9 @@ export default function Home() {
         <section className="section product--section container">
           <h1 className="product--title">Our products</h1>
           <div className="product--container">
-            <Card />
-            <Card />
+            {/* <Card />
+            <Card /> */}
+            {cards}
           </div>
         </section>
         <div className="activity--background">

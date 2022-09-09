@@ -20,8 +20,8 @@ export default function (props: any) {
         alt="washing-machine err"
         className="card--image"
       />
-      <h1 className="card--title">Washing Machine</h1>
-      <p className="card--description">washing clothes with 100 cpm</p>
+      <h1 className="card--title">{props.name}</h1>
+      <p className="card--description">{props.description}</p>
       <button className="button ">Enroll</button>
     </div>
   );

@@ -1,20 +1,23 @@
 [
     {
         "id": 1, 
-        "name" : "washing",
+        "name" : "Washing",
         "price" : 100000,
+        "description":"Washing clothes with 100 cpm",
         "imgUrl" : "/images/washing.png"
     },
     {
         "id": 2,
         "name" : "NTO",
         "price" : 100000,
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit2.",
         "imgUrl" : "/images/NTO.png"
     },
     {
         "id": 3,
         "name" : "industrial",
         "price" : 100000,
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit3.",
         "imgUrl" : "/images/industrial.png"
     },
     
@@ -22,6 +25,7 @@
         "id": 4,
         "name" : "printing",
         "price" : 100000,
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit4.",
         "imgUrl" : "/images/printing.png"
     }
 ]
