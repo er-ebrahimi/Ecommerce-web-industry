@@ -8,7 +8,7 @@ export default function About() {
       <main className="about--main">
         <section className="quote--section grid">
           <div className="quote--container container">
-            <h1 className="title quote--title">About us</h1>
+            <h1 className="title about--title">About us</h1>
             <ul className="quote--description about--description">
               Arsen Sanat Arvin Company was established in 2016 with the aim of
               designing, developing and upgrading machines in the wood, metal

@@ -1,16 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+/* @import url("https://www.fontyab.com/2463/a-iranian-sans.html"); */
+@font-face {
+  font-family: "B-NAZANIN";
+  src: local("B-NAZANIN"), url("./fonts/B-NAZANIN.ttf") format("truetype");
+  /* font-weight: normal; */
+}
 :root {
   --header-height: 3.5rem;
-  --body-font: "Poppins", sans-serif;
+  --body-font: "Poppins", "B-NAZANIN", sans-serif;
 
   --biggest-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
   --more--normal: 1.05rem;
-  --normal-font-size: 0.913rem;
-  --small-font-size: 0.813rem;
-  --smaller-font-size: 0.6rem;
+  --normal-font-size: 0.8rem;
+  --small-font-size: 0.9rem;
+  --smaller-font-size: 0.7rem;
 
   /* font weight */
   --font-medium: 500;
@@ -21,7 +27,7 @@
   --second-color: #e96b00;
   --second-color-alt: #c75b00;
   --card-color: #2e2e2e;
-  --footer-color: #212121;
+  --footer-color: #202020;
   /* z-index */
   --z-fixed: 100;
   --z-tooltip: 10;
@@ -35,6 +41,7 @@
 
 body {
   font-family: var(--body-font);
+  /* font-family: var(--body-font); */
   font-size: var(--smaller-font-size);
   background-color: #262626;
   color: var(--text-color);
@@ -43,6 +50,10 @@ body {
 /* usefull style */
 .container {
   margin: 1rem 8rem 1rem;
+  max-width: 968px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* overflow: auto; */
 }
 
 .grid {
@@ -51,6 +62,12 @@ body {
 
 .section {
   padding: 4.5rem 0 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: var(--font-bold);
+  /* padding-bottom: 1rem; */
 }
 
 ul {
@@ -78,6 +95,8 @@ main {
   margin: 1.5rem 0;
   transition: 0.25s;
   outline: none;
+  /* margin-bottom: 1rem; */
+  /* padding-bottom: ; */
 }
 
 .button:hover {
@@ -108,11 +127,12 @@ main {
 .header {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./assets/Home.jpg) center/cover no-repeat fixed;
+    url(./assets/images/Home.jpg) center/cover no-repeat fixed;
 }
 
 .nav--container {
-  margin: 0 8rem;
+  /* margin: 0 8rem; */
+  margin-top: 0;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -131,6 +151,10 @@ main {
   height: inherit;
   text-align: center;
   /* align-items: stretch; */
+}
+
+.fa-xmark {
+  display: none;
 }
 
 .nav--li {
@@ -197,14 +221,21 @@ main {
 }
 
 .product--section {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product--data {
   display: flex;
   gap: 2rem;
   /* overflow: auto; */
   flex-wrap: nowrap;
   justify-content: space-around;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
+  height: 30rem;
 }
 
 .product--container {
@@ -260,15 +291,31 @@ main {
 }
 
 /* activity section */
+.activity--section {
+  padding-top: 0;
+}
 
 .activity--background {
-  background: url(./assets/orange_hat.png) no-repeat;
+  background: url(./assets/images/orange_hat.png) no-repeat;
   background-position: right;
   background-size: contain;
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+}
+
+.activity--container {
+  align-items: center;
   height: 100vh;
   display: flex;
   /* justify-content: center; */
   align-items: center;
+}
+
+.activity--data {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .activity--title {
@@ -303,6 +350,8 @@ main {
   /* margin-top: 7rem; */
   /* position: inherit; */
   z-index: 0;
+  height: 60%;
+  justify-content: space-between;
 }
 
 .quote--title {
@@ -329,7 +378,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url("./assets/Group.png") center/90% no-repeat;
+  background: url("./assets/images/Group.png") center/80% no-repeat;
 }
 .quote--line {
   width: 100%;
@@ -483,15 +532,23 @@ textarea {
   align-items: center;
   justify-items: center;
   column-gap: 30px;
+  max-width: 30rem;
+  margin: auto;
+  /* justity */
+  /* justify-content: space-around; */
 }
 
 .about--main {
-  background: url(./assets/Desktop2.png) center/cover no-repeat;
+  background: url(./assets/images/Desktop2.png) center/cover no-repeat;
   background-color: rgba(42, 53, 81, 0.3);
 }
 
 .about--description {
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
+}
+
+.about--title {
+  font-size: var(--biggest-font-size);
 }
 
 /* form */
@@ -519,4 +576,24 @@ textarea {
 .textarea--form:focus {
   border-color: #c75b00;
   padding: 0.5rem 1rem;
+}
+
+.signup {
+  color: #e96b00;
+}
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+  background: rgba(42, 53, 81, 0.3);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border-radius: 1rem;
 }

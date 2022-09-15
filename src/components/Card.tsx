@@ -3,12 +3,10 @@ import {
   faCommentsDollar,
   faGameConsoleHandheld,
 } from "@fortawesome/sharp-solid-svg-icons";
-import * as washing from "../assets/washing.png";
+import * as washing from "../assets/images/washing.png";
 
 export default function (props: any) {
   // console.log(props.value);
-  console.log(props.imgUrl);
-  console.log(window.location.origin + "/public" + props.imgUrl);
   return (
     <div className="card--container">
       <img

@@ -1,0 +1,22 @@
+{
+    "app.header": "آرسن صنعت آروین",
+    "app.description": "برترین شرکت در حوزه طراحی و ساخت ماشین آلات صنعتی",
+    "app.button": "بعدی",
+    "nav.home" : "خانه",
+    "nav.shop" : "فروشگاه",
+    "nav.contact" : "ارتباط با ما",
+    "nav.about" : "درباره ما",
+    "logo": "آرسن",
+    "login.button": "ورود",
+    "product.title": "محصولات",
+    "activity.title": "حوزه کاری",
+    "activity.description1": "عایق های الاستومری (EPDM)-(NBR)",
+    "activity.description2": "عایق های صوتی",
+    "activity.description3": "رول های آلومینیومی",
+    "activity.description4": "صنایع چوبی",
+    "quote.title": "خدمات ما",
+    "quote.description1" : "مشاوره، اصلاح و بروزرسانی ماشین آلات موجود در صنعت",
+    "quote.description2" : "طراحی و ساخت ماشین آلات مبتنی بر طرح ارائه شده توسط کارفرما",
+    "quote.description3" : "طراحی و ساخت ماشین آلات مبتنی بر طرح متخصصین آرسن صنعت",
+    "quote.button" : "درخواست"
+}

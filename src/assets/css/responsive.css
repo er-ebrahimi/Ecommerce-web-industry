@@ -1,0 +1,53 @@
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 1rem 4rem 1rem;
+  }
+  .navbar {
+    overflow: visible;
+  }
+  .nav--container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .nav {
+    /* position: relative; */
+    position: absolute;
+    /* display: flex; */
+    height: 20rem;
+    /* z-index: 3; */
+    width: 170%;
+    /* From https://css.glass */
+    background: rgba(32, 32, 32, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 0 16px 16px;
+    border: 1px solid rgba(32, 32, 32, 0.95);
+    /* padding: 1rem; */
+    /* display: none; */
+  }
+  .nav--ul {
+    flex-direction: column;
+  }
+
+  .fa-xmark {
+    position: absolute;
+    right: 14%;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: inline;
+  }
+
+  /* activity */
+  .activity--background {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../images/complete_orange_hat.png) center/cover no-repeat fixed;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
