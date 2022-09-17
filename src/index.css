@@ -32,6 +32,18 @@
   --z-fixed: 100;
   --z-tooltip: 10;
 }
+@media screen and (max-width: 425px) {
+  :rout {
+    --biggest-font-size: 1.5rem;
+    --h1-font-size: 1rem;
+    --h2-font-size: 0.85rem;
+    --h3-font-size: 0.5rem;
+    --more--normal: 0.55rem;
+    --normal-font-size: 0.3rem;
+    --small-font-size: 0.4rem;
+    --smaller-font-size: 0.2rem;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -157,7 +169,36 @@ main {
   display: none;
 }
 
+#bars_button {
+  display: none;
+}
+
+.shop:hover {
+  color: #e96b00;
+  cursor: pointer;
+}
+
 .nav--li {
+  align-self: center;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  transition: 0.05s;
+}
+
+.nav--button {
+  transition: 0.3s;
+  display: none;
+}
+
+.nav--button:hover {
+  color: var(--second-color);
+  cursor: pointer;
+}
+
+.login--nav {
   align-self: center;
   height: 100%;
   display: flex;
@@ -225,6 +266,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 .product--data {
@@ -340,18 +382,15 @@ main {
 /* quote */
 .quote--container {
   width: 500px;
-  /* height: 300px; */
-  /* border: 1px solid; */
   background-color: var(--card-color);
   padding: 2rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  /* margin-top: 7rem; */
-  /* position: inherit; */
   z-index: 0;
   height: 60%;
   justify-content: space-between;
+  height: max-content;
 }
 
 .quote--title {
@@ -376,6 +415,7 @@ main {
 
 .quote--section {
   justify-content: center;
+  justify-items: center;
   align-items: center;
   height: 100vh;
   background: url("./assets/images/Group.png") center/80% no-repeat;
@@ -435,7 +475,7 @@ main {
 .input {
   border: 1px solid var(--card-color);
   background-color: inherit;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2.3rem;
   border-radius: 5px;
   outline: #e96b00;
   margin: 0.5rem 0;
