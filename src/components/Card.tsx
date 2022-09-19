@@ -3,10 +3,13 @@ import {
   faCommentsDollar,
   faGameConsoleHandheld,
 } from "@fortawesome/sharp-solid-svg-icons";
+import React from "react";
 import * as washing from "../assets/images/washing.png";
 
 export default function (props: any) {
   // console.log(props.value);
+  // let count: number = 0;
+  const [count, setCount] = React.useState(0);
   return (
     <div className="card--container">
       <img
@@ -20,7 +23,27 @@ export default function (props: any) {
       />
       <h1 className="card--title">{props.name}</h1>
       <p className="card--description">{props.description}</p>
-      <button className="button ">Enroll</button>
+      {count > 0 ? (
+        <div className="change_button--container">
+          <button
+            className="button change_button"
+            onClick={() => setCount(() => count - 1)}
+          >
+            -
+          </button>
+          <p>{count}</p>
+          <button
+            className="button change_button"
+            onClick={() => setCount(() => count + 1)}
+          >
+            +
+          </button>
+        </div>
+      ) : (
+        <button className="button " onClick={() => setCount(() => count + 1)}>
+          Enroll
+        </button>
+      )}
     </div>
   );
 }

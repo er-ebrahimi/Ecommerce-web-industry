@@ -332,6 +332,17 @@ main {
   width: inherit;
 }
 
+.change_button--container {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change_button {
+  padding: 0.75rem 1.5rem;
+}
+
 /* activity section */
 .activity--section {
   padding-top: 0;

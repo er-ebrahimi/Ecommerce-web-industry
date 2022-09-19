@@ -6,8 +6,8 @@ export default function About() {
     <React.StrictMode>
       <Navbar />
       <main className="about--main">
-        <section className="quote--section grid">
-          <div className="quote--container container">
+        <section className="quote--section about--section grid">
+          <div className="quote--container about--container container">
             <h1 className="title about--title">About us</h1>
             <ul className="quote--description about--description">
               Arsen Sanat Arvin Company was established in 2016 with the aim of
