@@ -15,7 +15,8 @@ export default function (props: {
 }) {
   const [count, setCount] = React.useState(0);
   return (
-    <Link to={`product/${props.id}`}>
+    // you should use productId in link
+    <Link to={`product/`}>
       <div className="card--container">
         <img
           src={
@@ -28,7 +29,7 @@ export default function (props: {
         />
         <h1 className="card--title">{props.name}</h1>
         <p className="card--description">{props.description}</p>
-        {count > 0 ? (
+        {/* {count > 0 ? (
           <div className="change_button--container">
             <button
               className="button change_button"
@@ -48,7 +49,7 @@ export default function (props: {
           <button className="button " onClick={() => setCount(() => count + 1)}>
             Enroll
           </button>
-        )}
+        )} */}
       </div>
     </Link>
   );
