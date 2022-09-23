@@ -17,6 +17,8 @@ import {
 import { IntlProvider } from "react-intl";
 import English from "./data/English.json";
 import Persian from "./data/Persian.json";
+import { store } from "./redux/app/store";
+import { Provider } from "react-redux";
 import "./fonts/B-NAZANIN.ttf";
 let local = navigator.language;
 let lan;
@@ -30,9 +32,11 @@ library.add(fab, faCheckSquare, faCoffee, faEnvelope);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <IntlProvider locale={local} messages={English}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
     </IntlProvider>
   </React.StrictMode>
 );

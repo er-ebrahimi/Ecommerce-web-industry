@@ -300,7 +300,7 @@ main {
   min-width: 230px;
   min-height: 350px;
   background-color: var(--card-color);
-  border: 1px solid var(--card-color);
+  /* border: 1px solid var(--card-color); */
   border-radius: 10px;
   /* position: relative; */
   display: flex;

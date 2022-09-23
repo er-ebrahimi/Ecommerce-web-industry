@@ -39,7 +39,7 @@
     flex-direction: column;
   }
   .x_close {
-    top: 0;
+    top: -2px;
   }
   .fa-xmark {
     position: absolute;
@@ -79,7 +79,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 677px) {
   .container {
     margin: 1rem;
   }
@@ -110,10 +110,6 @@
   .shop--container {
     grid-template-columns: 1fr;
   }
-
-  
 }
 
 /* small phone */
-
-

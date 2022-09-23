@@ -3,9 +3,20 @@ import Footer from "../components/Footer";
 import React from "react";
 import data from "../data/data.json";
 import Card from "../components/Card";
+import { setProduct, product } from "../redux/feature/ProductSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 export default function Shop() {
-  console.log(data);
   // let ali = data.map(item => )
+  // const product = useSeletor((state) => state)
+  const dispatch = useAppDispatch();
+  // console.log(typeof data[0].id);
+  // data.map((oneData) => dispatch(setProduct(oneData)));
+  const products = useAppSelector((state) => state.productReducer.product);
+  function setAllProducts(products: any) {
+    return products.map((item: any) => {
+      return <Card key={item.id} {...item} />;
+    });
+  }
   return (
     <React.StrictMode>
       <header className="simple_header">
@@ -18,11 +29,7 @@ export default function Shop() {
       </header>
       <main>
         <section className="shop--cards--container container section">
-          <div className="shop--container grid">
-            {data.map((item) => {
-              return <Card key={item.id} {...item} />;
-            })}
-          </div>
+          <div className="shop--container grid">{setAllProducts(products)}</div>
         </section>
       </main>
       <Footer />

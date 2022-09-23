@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
+import ProductDetail from "./pages/ProductDetail";
 import Sginup from "./pages/Signup";
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Sginup />}></Route>
+        <Route path="/prodcut/:productId" element={<ProductDetail />}></Route>
+        <Route>404 Not found!</Route>
       </Routes>
     </div>
   );
