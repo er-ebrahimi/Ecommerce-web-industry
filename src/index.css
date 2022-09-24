@@ -206,7 +206,7 @@ main {
   display: flex;
   text-align: center;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 0rem;
   transition: 0.05s;
 }
 
@@ -679,4 +679,18 @@ textarea {
 .product_detail--image {
   width: 50%;
   height: 50%;
+}
+
+/* profile */
+.icon--profile {
+  font-size: 5rem;
+}
+
+.user--nav {
+  padding: 0 1rem;
+  transition: 1s;
+}
+
+.user--nav:hover {
+  color: var(--second-color);
 }

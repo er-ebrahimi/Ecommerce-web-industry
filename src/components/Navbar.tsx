@@ -6,6 +6,7 @@ import { FormattedMessage } from "react-intl";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+import { faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect } from "react";
 export default function Navbar() {
   let nav = document.getElementsByClassName("nav");
@@ -53,6 +54,12 @@ export default function Navbar() {
             <FontAwesomeIcon icon={faXmark} className="fa-xmark" />
           </div>
           <ul className="nav--ul">
+            <Link
+              to="/profile"
+              className="nav__link active-link login--nav user--nav"
+            >
+              <FontAwesomeIcon icon={faUserLarge} className="fa-userLarge" />
+            </Link>
             <Link to="/login" className="nav__link active-link login--nav ">
               <button className="button login--button">
                 <FormattedMessage id="login.button" defaultMessage="login" />

@@ -11,6 +11,7 @@ import Product from "./pages/Product";
 import Sginup from "./pages/Signup";
 // import Product from "./pages/Product";
 import ShopProduct from "./pages/ShoppingPage";
+import Profile from "./pages/Profile";
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signup" element={<Sginup />}></Route>
         <Route path="/product/:productId" element={<Product />}></Route>
         <Route path="/shopProduct" element={<ShopProduct />}></Route>
+        <Route path="/Profile" element={<Profile />}></Route>
         <Route>404 Not found!</Route>
       </Routes>
     </div>
