@@ -14,8 +14,9 @@ import {
 import { product } from "../utility/types";
 // import { useAppSelector } from "../hooks/hooks";
 export default function Product() {
-  const props = { ...data[0], amount: 0 };
-
+  let { productId } = useParams();
+  const props = { ...data[Number(productId) - 1], amount: 0 };
+  let num = Number(productId);
   const dispatchSelected = useAppDispatch();
 
   const [count, setCount] = React.useState(
@@ -24,21 +25,31 @@ export default function Product() {
     </button>
   );
   const productSelector = useAppSelector((state) => state.SelectedProduct);
-  //   const thisPageProduct = //TODO find product with useParams then initilize it with this
-  //change button
+
   useEffect(() => {
     chooseButton();
   }, [productSelector]);
-
+  let index = 0;
+  let finding = () => {
+    for (let i = 0; i < productSelector.length; i++)
+      if (productSelector[i].id === props.id) {
+        index = i;
+        return productSelector[i];
+      }
+    return props;
+  };
   function onClickEnroll() {
     dispatchSelected(selectedProduct({ ...props, amount: 1 }));
   }
+
   /**
    * function for passing enroll button or increasing and decreasing button
    */
   function chooseButton() {
-    let found = props;
-    if (productSelector.length === 0) {
+    // let found = props;
+    let found = finding();
+
+    if (found.amount < 1) {
       setCount(
         <button className="button " onClick={onClickEnroll}>
           Enroll
@@ -50,7 +61,7 @@ export default function Product() {
           <button className="button change_button" onClick={decreasingAmount}>
             -
           </button>
-          <p>{productSelector[0].amount}</p>
+          <p>{productSelector[index].amount}</p>
           <button className="button change_button" onClick={increasingAmount}>
             +
           </button>
@@ -64,7 +75,7 @@ export default function Product() {
   }
   function decreasingAmount() {
     dispatchSelected(decrementProduct(props));
-    if (productSelector[0].amount < 2) {
+    if (productSelector[index].amount < 2) {
       dispatchSelected(deleteProduct(props));
     }
   }
@@ -81,7 +92,7 @@ export default function Product() {
       </header>
       <main>
         <section className="product--cards--container container section">
-          <div className="card--container">
+          <div className="card--container productDetail--container">
             <img
               src={
                 props.id
@@ -89,10 +100,29 @@ export default function Product() {
                   : washing.default
               }
               alt="washing-machine err"
-              className="card--image"
+              className="card--image product_detail--image"
             />
             <h1 className="card--title">{props.name}</h1>
+            <h3>description</h3>
             <p className="card--description">{props.description}</p>
+            {/* TODO discription you should change it Contrary to popular */}
+            <p>
+              belief, Lorem Ipsum is not simply random text. It has roots in a
+              piece of classical Latin literature from 45 BC, making it over
+              2000 years old. Richard McClintock, a Latin professor at
+              Hampden-Sydney College in Virginia, looked up one of the more
+              obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+              going through the cites of the word in classical literature,
+              discovered the undoubtable source. Lorem Ipsum comes from sections
+              1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+              Extremes of Good and Evil) by Cicero, written in 45 BC. This book
+              is a treatise on the theory of ethics, very popular during the
+              Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+              amet..", comes from a line in section 1.10.32.
+            </p>
+            <br />
+            <p>{props.price}تومان</p>
+            {/* <p>{props.}</p> */}
             {count}
           </div>
         </section>

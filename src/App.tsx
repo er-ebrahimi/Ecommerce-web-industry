@@ -7,9 +7,10 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
-import ProductDetail from "./pages/ProductDetail";
-import Sginup from "./pages/Signup";
 import Product from "./pages/Product";
+import Sginup from "./pages/Signup";
+// import Product from "./pages/Product";
+import ShopProduct from "./pages/ShoppingPage";
 function App() {
   return (
     <div className="App">
@@ -19,9 +20,10 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/product" element={<Product />}></Route>
+        {/* <Route path="/product" element={<Product />}></Route> */}
         <Route path="/signup" element={<Sginup />}></Route>
-        <Route path="/prodcut/:productId" element={<ProductDetail />}></Route>
+        <Route path="/product/:productId" element={<Product />}></Route>
+        <Route path="/shopProduct" element={<ShopProduct />}></Route>
         <Route>404 Not found!</Route>
       </Routes>
     </div>

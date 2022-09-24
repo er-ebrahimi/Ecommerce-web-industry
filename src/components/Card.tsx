@@ -6,6 +6,7 @@ import {
 import React from "react";
 import * as washing from "../assets/images/washing.png";
 import { Link } from "react-router-dom";
+import Product from "../pages/Product";
 
 export default function (props: {
   id: number;
@@ -16,7 +17,7 @@ export default function (props: {
   const [count, setCount] = React.useState(0);
   return (
     // you should use productId in link
-    <Link to={`product/`}>
+    <Link to={`/product/${props.id}`}>
       <div className="card--container">
         <img
           src={
@@ -29,27 +30,6 @@ export default function (props: {
         />
         <h1 className="card--title">{props.name}</h1>
         <p className="card--description">{props.description}</p>
-        {/* {count > 0 ? (
-          <div className="change_button--container">
-            <button
-              className="button change_button"
-              onClick={() => setCount(() => count - 1)}
-            >
-              -
-            </button>
-            <p>{count}</p>
-            <button
-              className="button change_button"
-              onClick={() => setCount(() => count + 1)}
-            >
-              +
-            </button>
-          </div>
-        ) : (
-          <button className="button " onClick={() => setCount(() => count + 1)}>
-            Enroll
-          </button>
-        )} */}
       </div>
     </Link>
   );

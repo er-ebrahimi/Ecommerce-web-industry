@@ -1,23 +1,29 @@
 import { Nav } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FormattedMessage } from "react-intl";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-// import {Navbar as NavbarBs} from "react-bootstrap"
+import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+import React, { useEffect } from "react";
 export default function Navbar() {
-  let xButton = document.getElementById("x_button");
   let nav = document.getElementsByClassName("nav");
-  // xButton?.addEventListener("click", () => {
-  //   nav[0].classList.remove("x_close");
-  // });
+  const shopAmountSelector = useAppSelector((state) => state.SelectedProduct);
+  const [shopAmount, shopAmountSetter] = React.useState(0);
+  // shopAmountSetter(shopAmountSelector.)
 
-  let bars = document.getElementById("bars_button");
-  // bars?.addEventListener("click", () => {
-  //   nav[0].classList.add("x_close");
-  // });
+  useEffect(() => {
+    let count = 0;
+    for (let i = 0; i < shopAmountSelector.length; i++) {
+      const element = shopAmountSelector[i];
+      count += element.amount;
+    }
+    shopAmountSetter(count);
+  }, [shopAmountSelector]);
+  // let element = document.getElementsByClassName("shop--link");
+  // let amountShoup = window.getComputedStyle(element[0], ":after");
+  // let content = amountShoup["content"];
   return (
     <nav className="navbar">
       <div className="container nav--container">
@@ -26,10 +32,13 @@ export default function Navbar() {
             <FormattedMessage id="logo" defaultMessage="arsen" />
           </a>
           <Nav.Link className="shop--link">
-            <FontAwesomeIcon
-              icon={faShoppingCart}
-              className="fa-cart-shopping"
-            />
+            <Link to="/shopProduct">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                className="fa-cart-shopping"
+              />
+              <div className="count_shop--link">{shopAmount}</div>
+            </Link>
           </Nav.Link>
         </div>
 
