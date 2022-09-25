@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
+import { FormattedMessage } from "react-intl";
 export default function () {
   const [sginup, setSginup] = React.useState({
     firstName: "",
@@ -24,7 +25,12 @@ export default function () {
             <h1 className="title contact--title">Sgin up:</h1>
           </div>
           <form action="#" className="contact--form">
-            <label htmlFor="first_name">First Name:</label>
+            <label htmlFor="first_name">
+              <FormattedMessage
+                id="signup.firstName"
+                defaultMessage="First Name:"
+              />
+            </label>
             <br />
             <input
               type="text"
@@ -35,7 +41,12 @@ export default function () {
               onChange={sginupSetter}
             />
             <br />
-            <label htmlFor="last_name">Last Name:</label>
+            <label htmlFor="last_name">
+              <FormattedMessage
+                id="signup.lastName"
+                defaultMessage="Last Name:"
+              />
+            </label>
             <br />
             <input
               type="text"
@@ -46,7 +57,9 @@ export default function () {
               onChange={sginupSetter}
             />
             <br />
-            <label htmlFor="email">email:</label>
+            <label htmlFor="email">
+              <FormattedMessage id="login.email" defaultMessage="email:" />
+            </label>
             <br />
             <input
               type="email"
@@ -57,7 +70,12 @@ export default function () {
               onChange={sginupSetter}
             />
             <br />
-            <label htmlFor="password">Your Password:</label>
+            <label htmlFor="password">
+              <FormattedMessage
+                id="login.password"
+                defaultMessage="Your Password:"
+              />
+            </label>
             <br />
             <input
               type="password"
@@ -67,7 +85,12 @@ export default function () {
               onChange={sginupSetter}
             />
             <br />
-            <label htmlFor="password">Repeat Your Password:</label>
+            <label htmlFor="password">
+              <FormattedMessage
+                id="signup.repeat"
+                defaultMessage="Repeat Your Password:"
+              />
+            </label>
             <br />
             <input
               type="password"
@@ -78,11 +101,11 @@ export default function () {
             />
             <br />
             <a href="/login" className="signup">
-              Login
+              <FormattedMessage id="login.login" defaultMessage="Login" />
             </a>
             <br />
             <button className="button" type="submit">
-              Submit
+              <FormattedMessage id="login.submit" defaultMessage="Submit" />
             </button>
           </form>
         </div>

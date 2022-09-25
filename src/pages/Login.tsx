@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 export default function () {
   let [login, setLogin] = React.useState({
@@ -24,7 +25,10 @@ export default function () {
             <h1 className="title contact--title">Login:</h1>
           </div>
           <form action="#" className="contact--form">
-            <label htmlFor="email">email:</label>
+            <label htmlFor="email">
+              {" "}
+              <FormattedMessage id="login.email" defaultMessage="email:" />
+            </label>
             <br />
             <input
               type="email"
@@ -35,7 +39,13 @@ export default function () {
               onChange={loginSetter}
             />
             <br />
-            <label htmlFor="password">password:</label>
+            <label htmlFor="password">
+              {" "}
+              <FormattedMessage
+                id="login.password"
+                defaultMessage="Password:"
+              />
+            </label>
             <br />
             <input
               type="password"
@@ -47,11 +57,11 @@ export default function () {
             />
             <br />
             <a href="/signup" className="signup">
-              sign up
+              <FormattedMessage id="login.signup" defaultMessage="sgin up" />
             </a>
             <br />
             <button className="button" type="submit">
-              Submit
+              <FormattedMessage id="login.submit" defaultMessage="Submit" />
             </button>
           </form>
         </div>

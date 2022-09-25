@@ -63,6 +63,7 @@ body {
 .container {
   margin: 1rem 8rem 1rem;
   max-width: 968px;
+  margin: auto;
   /* margin-left: auto;
   margin-right: auto; */
   /* overflow: auto; */
@@ -268,32 +269,34 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  /* overflow: auto; */
+  flex-direction: column;
 }
 
 .product--data {
-  display: flex;
   gap: 2rem;
-  /* overflow: auto; */
   flex-wrap: nowrap;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
   height: 30rem;
+  overflow: hidden;
 }
 
 .product--container {
-  display: flex;
+  /* display: flex;
   gap: 2rem;
   overflow: auto;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-around; */
   /* height: 100vh; */
 }
 
 .product--title {
   font-size: var(--h1-font-size);
   font-weight: var(--font-bold);
+  text-align: center;
+  margin: 50px 0;
 }
 
 /* card */
@@ -632,7 +635,7 @@ textarea {
   justify-items: center;
   align-items: center;
   /* align-content: center; */
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
 }
 
@@ -699,4 +702,7 @@ textarea {
 
 .user--nav:hover {
   color: var(--second-color);
+}
+.swiper {
+  max-width: 100%;
 }

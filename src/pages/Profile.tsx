@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import React from "react";
 import { faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FormattedMessage } from "react-intl";
 export default function () {
   const [sginup, setSginup] = React.useState({
     firstName: "",
@@ -28,7 +29,12 @@ export default function () {
             </h1>
           </div>
           <form action="#" className="contact--form">
-            <label htmlFor="first_name">First Name:</label>
+            <label htmlFor="first_name">
+              <FormattedMessage
+                id="signup.firstName"
+                defaultMessage="First Name:"
+              />
+            </label>
             <br />
             <input
               type="text"
@@ -40,7 +46,12 @@ export default function () {
               value="Erfan"
             />
             <br />
-            <label htmlFor="last_name">Last Name:</label>
+            <label htmlFor="last_name">
+              <FormattedMessage
+                id="signup.lastName"
+                defaultMessage="Last Name:"
+              />
+            </label>
             <br />
             <input
               type="text"
@@ -52,7 +63,10 @@ export default function () {
               value="Ebrahimi"
             />
             <br />
-            <label htmlFor="email">email:</label>
+            <label htmlFor="email">
+              {" "}
+              <FormattedMessage id="login.email" defaultMessage="email:" />
+            </label>
             <br />
             <input
               type="email"
@@ -64,7 +78,12 @@ export default function () {
               value="erfan.es@gmail.com"
             />
             <br />
-            <label htmlFor="password">Your Password:</label>
+            <label htmlFor="password">
+              <FormattedMessage
+                id="login.password"
+                defaultMessage="Your Password:"
+              />
+            </label>
             <br />
             <input
               type="password"
@@ -74,7 +93,12 @@ export default function () {
               onChange={sginupSetter}
             />
             <br />
-            <label htmlFor="password">New Password:</label>
+            <label htmlFor="password">
+              <FormattedMessage
+                id="profile.newPassword"
+                defaultMessage="New Password:"
+              />
+            </label>
             <br />
             <input
               type="password"
@@ -85,7 +109,7 @@ export default function () {
             />
             <br />
             <button className="button" type="submit">
-              Submit
+              <FormattedMessage id="login.login" defaultMessage="Login" />
             </button>
           </form>
         </div>

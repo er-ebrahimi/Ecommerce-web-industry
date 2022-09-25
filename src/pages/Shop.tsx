@@ -5,6 +5,7 @@ import data from "../data/data.json";
 import Card from "../components/Card";
 import { setProduct, product } from "../redux/feature/ProductSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { FormattedMessage } from "react-intl";
 export default function Shop() {
   // let ali = data.map(item => )
   // const product = useSeletor((state) => state)
@@ -23,7 +24,12 @@ export default function Shop() {
         <section>
           <Navbar />
           <div className="shop--title--conatainer container section">
-            <h3 className="home--title shop--title">Products</h3>
+            <h3 className="home--title shop--title">
+              <FormattedMessage
+                id="product.title"
+                defaultMessage="Our products"
+              />
+            </h3>
           </div>
         </section>
       </header>

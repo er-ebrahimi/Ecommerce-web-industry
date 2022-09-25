@@ -6,6 +6,14 @@ import Card from "../components/Card";
 import data from "../data/data.json";
 import { FormattedMessage } from "react-intl";
 import { lan_string } from "../main";
+// import "../assets/css/swiper-bundle.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 export default function Home() {
   // const home = require("../assets/Home.jpg")
   // console.log(home.default);
@@ -51,14 +59,43 @@ export default function Home() {
       </header>
       <main>
         <section className="section product--section container">
-          <div className="product--data">
-            <h1 className="product--title">Our products</h1>
-            <div className="product--container">
-              {/* <Card />
-            <Card /> */}
-              {cards}
-            </div>
-          </div>
+          {/* <div className="product--data"> */}
+          <h1 className="product--title">
+            <FormattedMessage
+              id="product.title"
+              defaultMessage="Our products"
+            />
+          </h1>
+
+          <Swiper speed={500} slidesPerView={1} spaceBetween={20}>
+            {/* <div className="product--container">{cards}</div> */}
+            <SwiperSlide>
+              <Link to={`/product/${data[0].id}`}>
+                <div className="card--container swiper-slide">
+                  <img
+                    src={window.location.origin + "/public" + data[0].imgUrl}
+                    alt="washing-machine err"
+                    className="card--image"
+                  />
+                  <h1 className="card--title">{data[0].name}</h1>
+                  <p className="card--description">{data[0].description}</p>
+                </div>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link to={`/product/${data[1].id}`}>
+                <div className="card--container swiper-slide">
+                  <img
+                    src={window.location.origin + "/public" + data[1].imgUrl}
+                    alt="washing-machine err"
+                    className="card--image"
+                  />
+                  <h1 className="card--title">{data[1].name}</h1>
+                  <p className="card--description">{data[1].description}</p>
+                </div>
+              </Link>
+            </SwiperSlide>
+          </Swiper>
         </section>
         <div className="activity--background">
           <section className="activity--section section">

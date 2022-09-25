@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
 import { stringify } from "querystring";
+import { FormattedMessage } from "react-intl";
 type ContactData = {
   firstName: String;
   lastName: String;
@@ -32,7 +33,12 @@ export default function Contact() {
             <h1 className="title contact--title">Contact us:</h1>
           </div>
           <form action="#" className="contact--form">
-            <label htmlFor="first_name">First Name:</label>
+            <label htmlFor="first_name">
+              <FormattedMessage
+                id="signup.firstName"
+                defaultMessage="First Name:"
+              />
+            </label>
             <br />
             <input
               type="text"
@@ -43,7 +49,12 @@ export default function Contact() {
               onChange={formSetter}
             />
             <br />
-            <label htmlFor="email">Last Name:</label>
+            <label htmlFor="email">
+              <FormattedMessage
+                id="signup.lastName"
+                defaultMessage="Last Name:"
+              />
+            </label>
             <br />
             <input
               type="email"
@@ -54,7 +65,9 @@ export default function Contact() {
               onChange={formSetter}
             />
             <br />
-            <label htmlFor="email">email:</label>
+            <label htmlFor="email">
+              <FormattedMessage id="login.email" defaultMessage="email:" />
+            </label>
             <br />
             <input
               type="email"
@@ -65,7 +78,11 @@ export default function Contact() {
               onChange={formSetter}
             />
             <br />
-            <label htmlFor="textarea">How can we help you?</label>
+            <FormattedMessage
+              id="contact.how"
+              defaultMessage="How can we help you?"
+            />
+            <label htmlFor="textarea"></label>
             <br />
             <textarea
               name="problem"
@@ -77,7 +94,7 @@ export default function Contact() {
             ></textarea>
             <br />
             <button className="button" type="submit">
-              Submit
+              <FormattedMessage id="login.submit" defaultMessage="Submit" />
             </button>
           </form>
         </div>
