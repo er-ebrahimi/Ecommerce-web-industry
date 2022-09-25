@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import * as home from "../assets/Home.jpg";
-// import * as line from "../assets/Group.png";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import data from "../data/data.json";
-// declare module "*.jpg"
 import { FormattedMessage } from "react-intl";
+import { lan_string } from "../main";
 export default function Home() {
   // const home = require("../assets/Home.jpg")
   // console.log(home.default);
@@ -18,6 +17,13 @@ export default function Home() {
     }
     count = 0;
   });
+
+  if (lan_string === "Persian") {
+    const activityBackground = document.getElementsByClassName(
+      "activity--background"
+    );
+    // activityBackground[0].setAttribute("style", "background-position: left;");
+  }
   return (
     <React.StrictMode>
       <header className="header">

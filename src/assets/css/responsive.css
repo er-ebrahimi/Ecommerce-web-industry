@@ -1,3 +1,4 @@
+/* tablet */
 @media screen and (max-width: 768px) {
   .container {
     margin: 1rem 3rem 1rem;
@@ -77,6 +78,14 @@
   .quote--container {
     width: 80%;
   }
+
+  .product--discription {
+    width: auto;
+  }
+
+  .product--cards--container {
+    padding-top: 50px;
+  }
 }
 
 @media screen and (max-width: 677px) {
@@ -100,15 +109,26 @@
   }
 
   .quote--description {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .quote--container {
     padding: 1rem 0.85rem;
+    margin-top: 3rem;
   }
 
   .shop--container {
     grid-template-columns: 1fr;
+  }
+
+  .product--cards--container {
+    padding-top: 50px;
+  }
+
+  .about--title {
+    font-size: 1.5rem;
   }
 }
 
@@ -124,5 +144,9 @@
 
   .product--cards--container {
     padding-top: 40px;
+  }
+
+  .change_button--container {
+    align-self: auto;
   }
 } /* small phone */

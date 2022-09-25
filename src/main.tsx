@@ -21,17 +21,18 @@ import { store } from "./redux/app/store";
 import { Provider } from "react-redux";
 import "./fonts/B-NAZANIN.ttf";
 let local = navigator.language;
-let lan;
+export let lan: any;
+export let lan_string: string = "Persian";
 if (local === "en-US") {
   lan = English;
 } else {
   lan = Persian;
 }
-// document.getElementsByTagName("html")[0].setAttribute("dir", "rtl"); //TODO
+document.getElementsByTagName("html")[0].setAttribute("dir", "rtl"); //TODO
 library.add(fab, faCheckSquare, faCoffee, faEnvelope);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <IntlProvider locale={local} messages={English}>
+    <IntlProvider locale={local} messages={Persian}>
       <Provider store={store}>
         <BrowserRouter>
           <App />

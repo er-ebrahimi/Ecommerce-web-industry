@@ -6,6 +6,7 @@ import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FormattedMessage } from "react-intl";
 export default function () {
   return (
     <footer className="footer">
@@ -15,26 +16,38 @@ export default function () {
             <h3 className="reach--title--footer title--footer">Reach us </h3>
             <li>
               <FontAwesomeIcon icon="envelope" className="footer--icon icon" />{" "}
-              Email: info@arsensanat.com
+              <FormattedMessage
+                id="footer.email"
+                defaultMessage="Email: info@arsensanat.com"
+              />
             </li>
             <li>
               <FontAwesomeIcon icon={faPhone} className="footer--icon icon" />{" "}
-              Contact number: 09124840863-33314450
+              <FormattedMessage
+                id="footer.contact"
+                defaultMessage="Contact number: 09124840863-33314450"
+              />
             </li>
             <li>
               <FontAwesomeIcon
                 icon={faAddressCard}
                 className="footer--icon icon"
               />
-              Postal code: 1712875331
+              <FormattedMessage
+                id="footer.postal" //TODO post card icon to text
+                defaultMessage="Postal code: 1712875331"
+              />
             </li>
             <li>
               <FontAwesomeIcon
                 icon={faLocationDot}
                 className="footer--icon icon"
               />
-              Address: Siahsang, Khorramdasht Industrial Estate,
-              <br /> Syed Al Shahada Blvd., between 4 and 5 Galil, P67
+              <FormattedMessage
+                id="footer.address"
+                defaultMessage="Address: Siahsang, Khorramdasht Industrial Estate,
+              <br /> Syed Al Shahada Blvd., between 4 and 5 Galil, P67" //TODO fix br
+              />
             </li>
             <li className="social_media--footer">
               <a href="#">
@@ -52,16 +65,38 @@ export default function () {
 
         <div className="Our Services">
           <ul className="footer--ul">
-            <h3 className="title--footer">Our Servises</h3>
-            <li>Products</li>
-            <li>Designing</li>
-            <li>Consultation</li>
+            <h3 className="title--footer">
+              <FormattedMessage
+                id="footer.title"
+                defaultMessage="Our Servises"
+              />
+            </h3>
+            <li>
+              <FormattedMessage id="footer.product" defaultMessage="Products" />
+            </li>
+            <li>
+              <FormattedMessage
+                id="footer.designing"
+                defaultMessage="Designing"
+              />
+            </li>
+            <li>
+              <FormattedMessage
+                id="footer.consulation"
+                defaultMessage="Consultation"
+              />
+            </li>
           </ul>
           <h3 className="title--footer alert_title--footer">
-            Sign Up for industry alert
+            <FormattedMessage
+              id="footer.signupTitle"
+              defaultMessage="Sign Up for industry alert"
+            />
           </h3>
           <input type="email" className="footer--input input" />
-          <button className="button footer--button">Sign Up!</button>
+          <button className="button footer--button">
+            <FormattedMessage id="footer.signup" defaultMessage="Sign Up!" />
+          </button>
         </div>
       </div>
     </footer>

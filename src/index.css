@@ -326,6 +326,8 @@ main {
 
 .product--discription {
   width: 40vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .card--title {
@@ -342,6 +344,7 @@ main {
   justify-content: space-between;
   align-items: center;
   width: 150px;
+  align-self: center;
 }
 
 .change_button {
@@ -362,9 +365,10 @@ main {
 }
 
 .activity--background {
-  background: url(./assets/images/orange_hat.png) no-repeat;
-  background-position: right;
-  background-size: contain;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./assets/images/complete_orange_hat.png) center/cover no-repeat fixed;
+  /* background-position: right; */
+  /* background-size: contain; */
   /* display: flex; */
   /* justify-content: center; */
   align-items: center;
@@ -425,6 +429,7 @@ main {
   font-size: var(--normal-font-size);
   list-style: circle;
   padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .quote--description > li::marker {
@@ -441,7 +446,8 @@ main {
   justify-content: center;
   justify-items: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background: url("./assets/images/Group.png") center/80% no-repeat;
 }
 .quote--line {
@@ -603,7 +609,7 @@ textarea {
   max-width: 30rem;
   margin: auto;
   /* justity */
-  /* justify-content: space-around; */
+  justify-content: center;
 }
 
 .about--main {
