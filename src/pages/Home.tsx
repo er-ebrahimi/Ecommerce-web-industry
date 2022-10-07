@@ -95,6 +95,19 @@ export default function Home() {
                 </div>
               </Link>
             </SwiperSlide>
+            <SwiperSlide>
+              <Link to={`/product/${data[2].id}`}>
+                <div className="card--container swiper-slide">
+                  <img
+                    src={window.location.origin + "/public" + data[2].imgUrl}
+                    alt="washing-machine err"
+                    className="card--image"
+                  />
+                  <h1 className="card--title">{data[2].name}</h1>
+                  <p className="card--description">{data[2].description}</p>
+                </div>
+              </Link>
+            </SwiperSlide>
           </Swiper>
         </section>
         <div className="activity--background">

@@ -28,11 +28,11 @@ if (local === "en-US") {
 } else {
   lan = Persian;
 }
-document.getElementsByTagName("html")[0].setAttribute("dir", "rtl"); //TODO
+// document.getElementsByTagName("html")[0].setAttribute("dir", "rtl"); //TODO
 library.add(fab, faCheckSquare, faCoffee, faEnvelope);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <IntlProvider locale={local} messages={Persian}>
+    <IntlProvider locale={local} messages={English}>
       <Provider store={store}>
         <BrowserRouter>
           <App />

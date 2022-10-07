@@ -157,6 +157,7 @@ main {
 
 .nav {
   height: inherit;
+  border: none;
 }
 
 .nav--ul {
@@ -705,4 +706,9 @@ textarea {
 }
 .swiper {
   max-width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
 }
