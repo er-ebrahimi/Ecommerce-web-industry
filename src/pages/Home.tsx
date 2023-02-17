@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import * as home from "../assets/Home.jpg";
 import Footer from "../components/Footer";
@@ -17,6 +17,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 export default function Home() {
   // const home = require("../assets/Home.jpg")
   // console.log(home.default);
+
   let count: number = 0;
   let cards: any = data.map((x) => {
     count++;

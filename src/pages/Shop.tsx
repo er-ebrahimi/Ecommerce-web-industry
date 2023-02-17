@@ -1,18 +1,51 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import React from "react";
-import data from "../data/data.json";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
-import { setProduct, product } from "../redux/feature/ProductSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { FormattedMessage } from "react-intl";
+import { product } from "../utility/types";
+import axios from 'axios';
+import { setProduct } from "../redux/feature/ProductSlice";
+/**
+ * fetching data from back
+ */
+const fetchRequest = 'FETC_REQUEST';
+const fetchSuccess = 'FETCH_SUCCESS';
+const fetchFail = 'FETCH_FAIL';
+
+const reducer= (state: any, action: any) => {
+  switch (action.type) {
+    case fetchRequest:
+      return {...state,loading: true}
+    case fetchSuccess:
+      return {...state,loading: false,productsReducer: action.payload}
+    case fetchFail:
+      return {...state,loading: false,error: action.payload}
+    default:
+      return state;
+  }
+};
+
 export default function Shop() {
-  // let ali = data.map(item => )
-  // const product = useSeletor((state) => state)
+  const [{loading,productsReducer,error},dispatchReducer] = React.useReducer(reducer,{loading: false,productsReducer: [],error: ''});
   const dispatch = useAppDispatch();
-  // console.log(typeof data[0].id);
-  // data.map((oneData) => dispatch(setProduct(oneData)));
   const products = useAppSelector((state) => state.productReducer.product);
+  const fetchData = async () => {
+    dispatchReducer({type: fetchRequest});
+    try {
+      const response = await axios.get("/api/products");
+      dispatchReducer({type: fetchSuccess,payload: response.data});
+      dispatch(setProduct(response.data ));//TODO you are saving data two times one time in dispatch one time in dispatchReducer
+    } catch (error:any) {
+      dispatchReducer({type: fetchFail ,payload: error.message});
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // const dispatch = useAppDispatch();
   function setAllProducts(products: any) {
     return products.map((item: any) => {
       return <Card key={item.id} {...item} />;
@@ -35,7 +68,9 @@ export default function Shop() {
       </header>
       <main>
         <section className="shop--cards--container container section">
-          <div className="shop--container grid">{setAllProducts(products)}</div>
+          <div className="shop--container grid">{
+          loading ? <h1>Loading...</h1> : error ? <h1>{error}</h1> :
+          setAllProducts(products)}</div>
         </section>
       </main>
       <Footer />

@@ -12,32 +12,75 @@ import {
   deleteProduct,
 } from "../redux/feature/SelectedProduct";
 import { product } from "../utility/types";
-// import { useAppSelector } from "../hooks/hooks";
+import axios from 'axios';
+//fetch data function
+const fetchRequest = 'FETC_REQUEST';
+const fetchSuccess = 'FETCH_SUCCESS';
+const fetchFail = 'FETCH_FAIL';
+const reducer= (state: any, action: any) => {
+  switch (action.type) {
+    case fetchRequest:
+      return {...state,loading: true}
+    case fetchSuccess:
+      return {...state,loading: false,props: action.payload}
+    case fetchFail:
+      return {...state,loading: false,error: action.payload}
+    default:
+      return state;
+  }
+};
 export default function Product() {
-  let { productId } = useParams();
-  const props = { ...data[Number(productId) - 1], amount: 0 };
-  let num = Number(productId);
-  const dispatchSelected = useAppDispatch();
+  let temp:product
+  const [{loading,props,error},propsSetter] = React.useReducer(reducer,{loading: true,props:{},error: ''});
+  const param = useParams()
 
+  //fetch function
+  const fetchProduct = async () => {
+    propsSetter({type:fetchRequest})
+    try{
+      const response = await axios.get(`/api/products/${param.productId}`);
+      propsSetter({type:fetchSuccess, payload:response.data}) 
+    }
+    catch(error:any){
+      console.log("error")
+      propsSetter({type:fetchFail, payload:error.message})
+      console.log(error.message);
+    }
+    console.log(props)
+  };
+
+  //fetch data
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+  
+  //dispatch data
+  const dispatchSelected = useAppDispatch();
+  
+  //creating button
   const [count, setCount] = React.useState(
     <button className="button " onClick={onClickEnroll}>
       Enroll
     </button>
   );
-  const productSelector = useAppSelector((state) => state.SelectedProduct);
 
-  useEffect(() => {
-    chooseButton();
-  }, [productSelector]);
+  //getting data from redux
+  const productSelector = useAppSelector((state) => state.SelectedProduct);
+  
+  //changing button
+  // useEffect(() => {//TODO
+  //   chooseButton();
+  // }, [productSelector]);
   let index = 0;
   let finding = () => {
     for (let i = 0; i < productSelector.length; i++)
-      if (productSelector[i].id === props.id) {
+      if (productSelector[i].id === props!.id) {
         index = i;
         return productSelector[i];
       }
     return props;
   };
+
   function onClickEnroll() {
     dispatchSelected(selectedProduct({ ...props, amount: 1 }));
   }
@@ -46,10 +89,8 @@ export default function Product() {
    * function for passing enroll button or increasing and decreasing button
    */
   function chooseButton() {
-    // let found = props;
-    let found = finding();
-
-    if (found.amount < 1) {
+    let found:product = finding();
+    if (found!.amount < 1) {
       setCount(
         <button className="button " onClick={onClickEnroll}>
           Enroll
@@ -61,7 +102,7 @@ export default function Product() {
           <button className="button change_button" onClick={decreasingAmount}>
             -
           </button>
-          <p>{productSelector[index].amount}</p>
+          <p>{productSelector[index]!.amount}</p>
           <button className="button change_button" onClick={increasingAmount}>
             +
           </button>
@@ -71,22 +112,24 @@ export default function Product() {
   }
 
   function increasingAmount() {
-    dispatchSelected(incrementProduct(props));
+    dispatchSelected(incrementProduct(props!));
   }
+
   function decreasingAmount() {
-    dispatchSelected(decrementProduct(props));
-    if (productSelector[index].amount < 2) {
-      dispatchSelected(deleteProduct(props));
+    dispatchSelected(decrementProduct(props!));
+    if (productSelector[index]!.amount < 2) {
+      dispatchSelected(deleteProduct(props!));
     }
   }
 
   return (
     <>
+{  loading ? <h1>Loading..</h1> : error ?<h1>{error}</h1>: <>{console.log(props)}
       <header className="simple_header">
         <section>
           <Navbar />
           <div className="shop--title--conatainer container section">
-            <h3 className="home--title shop--title">{props.name}</h3>
+            <h3 className="home--title shop--title">{props!.name}</h3>
           </div>
         </section>
       </header>
@@ -95,16 +138,16 @@ export default function Product() {
           <div className="card--container productDetail--container">
             <img
               src={
-                props.id
-                  ? window.location.origin + "/public" + props.imgUrl
+                props!.id
+                  ? window.location.origin + "/public" + props!.imgUrl
                   : washing.default
               }
               alt="washing-machine err"
               className="card--image product_detail--image"
             />
-            <h1 className="card--title">{props.name}</h1>
+            <h1 className="card--title">{props!.name}</h1>
             <h3>description</h3>
-            <p className="card--description">{props.description}</p>
+            <p className="card--description">{props!.description}</p>
             {/* TODO discription you should change it Contrary to popular */}
             <p>
               belief, Lorem Ipsum is not simply random text. It has roots in a
@@ -121,13 +164,14 @@ export default function Product() {
               amet..", comes from a line in section 1.10.32.
             </p>
             <br />
-            <p>{props.price}تومان</p>
+            <p>{props!.price}تومان</p>
             {/* <p>{props.}</p> */}
             {count}
           </div>
         </section>
       </main>
       <Footer />
+      </>}
     </>
   );
 }

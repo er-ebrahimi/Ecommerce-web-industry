@@ -5,8 +5,8 @@ const SelectedProductSlice = createSlice({
   name: "selected",
   initialState,
   reducers: {
-    selectedProduct(state, action: PayloadAction<product>) {
-      state.push(action.payload);
+    selectedProduct(state, {payload}) {
+      state.push(...payload);
     },
     incrementProduct(state, action: PayloadAction<product>) {
       // state.push(action.payload);
