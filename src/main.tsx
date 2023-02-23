@@ -28,6 +28,7 @@ if (local === "en-US") {
 } else {
   lan = Persian;
 }
+import {HelmetProvider} from 'react-helmet-async'
 document.getElementsByTagName("html")[0].setAttribute("dir", "rtl"); //TODO
 library.add(fab, faCheckSquare, faCoffee, faEnvelope);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -35,7 +36,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <IntlProvider locale={local} messages={Persian}>
       <Provider store={store}>
         <BrowserRouter>
+         <HelmetProvider>
           <App />
+          </HelmetProvider>
         </BrowserRouter>
       </Provider>
     </IntlProvider>

@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import {Helmet} from 'react-helmet-async'
 export default function Home() {
   // const home = require("../assets/Home.jpg")
   // console.log(home.default);
@@ -37,6 +38,9 @@ export default function Home() {
     <React.StrictMode>
       <header className="header">
         <Navbar />
+        <Helmet>
+              <title>Arsen</title>
+            </Helmet>
         <section className="section grid home--section">
           <div className="container  home--container">
             <h1 className="home--title title">

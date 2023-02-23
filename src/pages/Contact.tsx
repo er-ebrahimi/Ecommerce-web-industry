@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
+import {Helmet} from 'react-helmet-async'
 import { stringify } from "querystring";
 import { FormattedMessage } from "react-intl";
 type ContactData = {
@@ -27,6 +28,9 @@ export default function Contact() {
   return (
     <React.StrictMode>
       <Navbar />
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       <main>
         <div className="section container contact--form--container grid">
           <div>

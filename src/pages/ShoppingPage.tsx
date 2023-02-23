@@ -12,6 +12,7 @@ import {
 } from "../redux/feature/SelectedProduct";
 import { product } from "../utility/types";
 import ShopCard from "../components/ShopCard";
+import { Helmet } from "react-helmet-async";
 // import { useAppSelector } from "../hooks/hooks";
 export default function ShopProduct() {
   const shopSelector = useAppSelector((state) => state.SelectedProduct);
@@ -22,6 +23,9 @@ export default function ShopProduct() {
   }
   return (
     <>
+      <Helmet>
+        <title>Shop</title>
+      </Helmet>
       <header className="simple_header">
         <section>
           <Navbar />

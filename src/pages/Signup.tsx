@@ -2,7 +2,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
 import { FormattedMessage } from "react-intl";
-export default function () {
+import {Helmet} from 'react-helmet-async'
+export default function Sginup() {
   const [sginup, setSginup] = React.useState({
     firstName: "",
     lastName: "",
@@ -19,6 +20,9 @@ export default function () {
   return (
     <>
       <Navbar />
+      <Helmet>
+        <title>Signup</title>
+      </Helmet>
       <main>
         <div className="section container contact--form--container grid">
           <div>
@@ -80,7 +84,7 @@ export default function () {
             <input
               type="password"
               className="input"
-              id="password"
+              id="password_test"
               required
               onChange={sginupSetter}
             />

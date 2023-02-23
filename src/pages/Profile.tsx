@@ -4,7 +4,8 @@ import React from "react";
 import { faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
-export default function () {
+import { Helmet } from "react-helmet-async";
+export default function Profile() {
   const [sginup, setSginup] = React.useState({
     firstName: "",
     lastName: "",
@@ -21,6 +22,9 @@ export default function () {
   return (
     <>
       <Navbar />
+      <Helmet>
+        <title>Profile</title>
+      </Helmet>
       <main>
         <div className="section container contact--form--container grid">
           <div>
@@ -103,7 +107,7 @@ export default function () {
             <input
               type="password"
               className="input"
-              id="password"
+              id="password_test"
               required
               onChange={sginupSetter}
             />

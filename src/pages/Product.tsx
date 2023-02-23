@@ -13,6 +13,7 @@ import {
 } from "../redux/feature/SelectedProduct";
 import { product } from "../utility/types";
 import axios from 'axios';
+import {Helmet} from 'react-helmet-async'
 //fetch data function
 const fetchRequest = 'FETC_REQUEST';
 const fetchSuccess = 'FETCH_SUCCESS';
@@ -46,7 +47,6 @@ export default function Product() {
       propsSetter({type:fetchFail, payload:error.message})
       console.log(error.message);
     }
-    console.log(props)
   };
 
   //fetch data
@@ -67,10 +67,13 @@ export default function Product() {
   //getting data from redux
   const productSelector = useAppSelector((state) => state.SelectedProduct);
   
-  //changing button
-  // useEffect(() => {//TODO
-  //   chooseButton();
-  // }, [productSelector]);
+  // changing button
+  useEffect(() => {//TODO
+    if(loading == false){
+      chooseButton();
+
+    }
+  }, [productSelector,loading]);
   let index = 0;
   let finding = () => {
     for (let i = 0; i < productSelector.length; i++)
@@ -124,11 +127,14 @@ export default function Product() {
 
   return (
     <>
-{  loading ? <h1>Loading..</h1> : error ?<h1>{error}</h1>: <>{console.log(props)}
+{  loading ? <h1>Loading..</h1> : error ?<h1>{error}</h1>: <>
       <header className="simple_header">
         <section>
           <Navbar />
           <div className="shop--title--conatainer container section">
+            <Helmet>
+              <title>{props!.name}</title>
+            </Helmet>
             <h3 className="home--title shop--title">{props!.name}</h3>
           </div>
         </section>

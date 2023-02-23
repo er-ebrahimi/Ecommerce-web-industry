@@ -7,6 +7,8 @@ import { FormattedMessage } from "react-intl";
 import { product } from "../utility/types";
 import axios from 'axios';
 import { setProduct } from "../redux/feature/ProductSlice";
+import {Helmet} from 'react-helmet-async'
+
 /**
  * fetching data from back
  */
@@ -56,6 +58,9 @@ export default function Shop() {
       <header className="simple_header">
         <section>
           <Navbar />
+          <Helmet>
+        <title>Arsen</title>
+      </Helmet>
           <div className="shop--title--conatainer container section">
             <h3 className="home--title shop--title">
               <FormattedMessage

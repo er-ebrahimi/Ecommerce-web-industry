@@ -1,15 +1,16 @@
+import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import React from "react";
 import { FormattedMessage } from "react-intl";
+import {Helmet} from 'react-helmet-async'
 
-export default function () {
+export default function Login() {
   let [login, setLogin] = React.useState({
     email: "",
     password: "",
   });
   // console.log(login);
-  function loginSetter(event: any) {
+  let loginSetter = (event: any) => {
     const { name, value } = event.target;
     setLogin((login) => ({
       ...login,
@@ -19,6 +20,10 @@ export default function () {
   return (
     <>
       <Navbar />
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <title>Arsen</title>
       <main>
         <div className="section container contact--form--container grid">
           <div>

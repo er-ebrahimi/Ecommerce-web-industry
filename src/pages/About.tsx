@@ -2,10 +2,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import {Helmet} from 'react-helmet-async'
 export default function About() {
   return (
     <React.StrictMode>
       <Navbar />
+      <Helmet>
+       <title>About</title>
+      </Helmet>
+
       <main className="about--main">
         <section className="quote--section about--section grid">
           <div className="quote--container about--container container">
